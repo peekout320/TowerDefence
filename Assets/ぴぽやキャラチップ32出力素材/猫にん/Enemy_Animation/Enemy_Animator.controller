@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u732B\u306B\u3093_\u9B54\u738B\u732B_0"
+  m_Name: Enemy_Animator
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
