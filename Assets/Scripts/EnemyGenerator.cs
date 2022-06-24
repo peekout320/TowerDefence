@@ -10,45 +10,39 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField]
     private PathData pathData;
 
-    public bool isEnemyGenerate;
+    private GameManager gameManager;
 
-    public int generateIntervalTime;
+    //void Start()
+    //{
 
-    public int generateEnemyCount;
+    //    生成の許可をする
+    //   isEnemyGenerate = true;
 
-    public int maxEnemyCount;
-
-
-    void Start()
-    {
-
-        // 生成の許可をする
-        isEnemyGenerate = true;
-
-        // 敵の生成準備
-        StartCoroutine(PreparateEnemyGenerate());
-    }
+    //    敵の生成準備
+    //    StartCoroutine(PreparateEnemyGenerate());
+    //}
 
 
     /// <summary>
     /// 敵の生成準備
     /// </summary>
     /// <returns></returns>
-    public IEnumerator PreparateEnemyGenerate()
+    public IEnumerator PreparateEnemyGenerate(GameManager gameManager)
     {
+        this.gameManager = gameManager;
 
         // 生成用のタイマー用意
         int timer = 0;
 
         // isEnemyGenetate が true の間はループする
-        while (isEnemyGenerate)
+        while (gameManager.isEnemyGenerate)
         {
 
             // タイマーを加算
             timer++;
 
             // タイマーの値が敵の生成待機時間を超えたら
-            if (timer > generateIntervalTime)
+            if (timer > gameManager.generateIntervalTime)
             {
 
                 // 次の生成のためにタイマーをリセット
@@ -57,16 +51,12 @@ public class EnemyGenerator : MonoBehaviour
                 // 敵の生成
                 GenerateEnemy();
 
-                // 生成した数をカウントアップ
-                generateEnemyCount++;
+                // 生成した数をカウントアップとListへ追加
+                gameManager.AddEnemyList();
 
-                // 敵の最大生成数を超えたら
-                if (generateEnemyCount >= maxEnemyCount)
-                {
-
-                    // 生成停止
-                    isEnemyGenerate = false;
-                }
+                // 敵の最大生成数を超えたら生成停止
+                gameManager.JudgeGenerateEnemysEnd();
+                
             }
 
             // 1フレーム中断
