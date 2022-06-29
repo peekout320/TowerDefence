@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGenerator: {fileID: 1728056515}
   isEnemyGenerate: 0
-  generateIntervalTime: 100
+  generateIntervalTime: 300
   generateEnemyCount: 0
   maxEnemyCount: 5
 --- !u!4 &241187504
@@ -2378,16 +2378,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -7, y: -5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -6, y: -5, z: 0}
     second:
       serializedVersion: 2
@@ -3028,16 +3018,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -9, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -6, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -3410,7 +3390,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 49
+  - m_RefCount: 47
     m_Data: {fileID: 11400000, guid: 4aa27228a5d164a218d91b5b7d6a50d2, type: 2}
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 592a1e252a0e44201aff256f44db51bf, type: 2}
@@ -3433,7 +3413,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 49
+  - m_RefCount: 47
     m_Data: {fileID: 403195802, guid: 34c525c47d17b4b8097ae9d422f1a2bd, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: -2108686614, guid: 0003b94a319c446e0a1e124fc5c22b06, type: 3}
@@ -3456,7 +3436,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -2031468309, guid: 6fcfd9d80ee88483baffd8079add7503, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 106
+  - m_RefCount: 104
     m_Data:
       e00: 1
       e01: 0
@@ -3475,7 +3455,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 106
+  - m_RefCount: 104
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -3585,17 +3565,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &601078542 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8914879013664860845, guid: bf2abfaa62d5c4c1d9b803ed637e5321, type: 3}
-  m_PrefabInstance: {fileID: 8914879014230266275}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e224e5fc29645939f8f70f45bdf7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1188750780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,7 +3640,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyControllerPrefab: {fileID: 5652770447909631782, guid: 7c7ef032091254d21bdcd2fb2508b295, type: 3}
-  pathData: {fileID: 601078542}
+  pathDatas:
+  - {fileID: 8914879013664860845, guid: bf2abfaa62d5c4c1d9b803ed637e5321, type: 3}
+  - {fileID: 5582125757221564052, guid: 19998e43fb722479e9bbce85546810ec, type: 3}
+  - {fileID: 3753190146698485399, guid: aa7d830b75bd8495e80707206e8bb656, type: 3}
   pathLinePrefab: {fileID: 6818727626093228504, guid: cda93a2d16e884302ba242a1a4b270af, type: 3}
 --- !u!4 &1728056516
 Transform:

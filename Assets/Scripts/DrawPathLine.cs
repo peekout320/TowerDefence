@@ -5,10 +5,10 @@ using UnityEngine;
 public class DrawPathLine : MonoBehaviour
 {
     [SerializeField]
-    private float startLineWidth = 0.5f;
+    private float startLineWidth = 0.2f;
 
     [SerializeField]
-    private float endLineWidth = 0.5f;
+    private float endLineWidth = 0.2f;
 
     /// <summary>
     /// 経路用のライン生成

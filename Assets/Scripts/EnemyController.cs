@@ -78,7 +78,6 @@ public class EnemyController : MonoBehaviour
         // Hp が 0 以下になった場合
         if (hp <= 0)
         {
-
             // 破壊処理を実行するメソッドを呼び出す
             DestroyEnemy();
         }
