@@ -24,6 +24,9 @@ public class EnemyController : MonoBehaviour
 
     private Animator anim;
 
+    [SerializeField]
+    public int attackDamage;
+
     /// <summary>
     /// 敵の設定
     /// </summary>
