@@ -22,6 +22,11 @@ public class CharaController : MonoBehaviour
     [SerializeField]
     private UnityEngine.UI.Text txtAttackCount;
 
+    private void Start()
+    {
+        UpdateDisplayAttackCount();
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
 
     {
@@ -31,10 +36,7 @@ public class CharaController : MonoBehaviour
 
             Debug.Log("敵発見");
 
-            Destroy(collision.gameObject);
-
-            // 敵の情報(EnemyController)を取得する。EnemyController がアタッチされているゲームオブジェクトを判別しているので、ここで、今までの Tag による判定と同じ動作で判定が行えます。
-            // そのため、22の処理から Tag の処理を削除しています
+            // 敵の情報(EnemyController)を取得する。EnemyController がアタッチされているゲームオブジェクトを判別しているので、Tag による判定と同じ動作で判定が行えます。
             if (collision.gameObject.TryGetComponent(out enemy))
             {
 

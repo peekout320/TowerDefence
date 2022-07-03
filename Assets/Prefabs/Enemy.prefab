@@ -121,8 +121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathData: {fileID: 8914879013664860845, guid: bf2abfaa62d5c4c1d9b803ed637e5321, type: 3}
   moveSpeed: 100
-  maxHp: 0
+  maxHp: 3
   hp: 0
+  attackDamage: 0
 --- !u!61 &2779816735826675829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,5 +148,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0

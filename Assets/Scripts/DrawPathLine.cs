@@ -16,7 +16,6 @@ public class DrawPathLine : MonoBehaviour
     /// <param name="drawPaths"></param>
     public void CreatePathLine(Vector3[] drawPaths)
     {
-
         TryGetComponent(out LineRenderer lineRenderer);
 
         // ラインの太さを調整
