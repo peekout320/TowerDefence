@@ -387,3 +387,15 @@ MonoBehaviour:
   enemy: {fileID: 0}
   attackCount: 3
   txtAttackCount: {fileID: 4184102899287536729}
+  attackRangeArea: {fileID: 11699230284805076}
+  charaData:
+    charaNo: 0
+    cost: 0
+    charaSprite: {fileID: 0}
+    charaName: 
+    attackPower: 0
+    attackRange: 0
+    intervalAttackTime: 0
+    maxAttackCount: 0
+    discription: 
+  spriteRenderer: {fileID: 6388125576050645352}

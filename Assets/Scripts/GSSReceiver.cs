@@ -55,8 +55,8 @@ public class GSSReceiver : MonoBehaviour
             DataBaseManager.instance.charaDataSO.charaDatasList =
                 new List<CharaData>(sheetDataslist.Find(x => x.SheetName == SheetName.CharaData).DatasList.Select(x => new CharaData(x)).ToList());
 
-            DataBaseManager.instance.attackRangeSizeSO.attackRangeSizesList =
-                new List<AttackRangeSize>(sheetDataslist.Find(x => x.SheetName == SheetName.AttackRangeSize).DatasList.Select(x => new AttackRangeSize(x)).ToList());
+            //DataBaseManager.instance.attackRangeSizeSO.attackRangeSizesList =
+            //    new List<AttackRangeSize>(sheetDataslist.Find(x => x.SheetName == SheetName.AttackRangeSize).DatasList.Select(x => new AttackRangeSize(x)).ToList());
 
             // TODO 他の SO を追加する
 

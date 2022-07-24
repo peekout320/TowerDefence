@@ -14,20 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charaDatasList:
   - charaNo: 0
-    cost: 0
-    charaSprite: {fileID: 0}
-    charaName: 
-    attackPower: 0
+    cost: 100
+    charaSprite: {fileID: -809233242, guid: 4b7b6a42e37114aeca81a6e9e9c5df79, type: 3}
+    charaName: Rieman
+    attackPower: 2
     attackRange: 0
-    intervalAttackTime: 0
-    maxAttackCount: 0
-    discription: 
-  - charaNo: 0
-    cost: 0
-    charaSprite: {fileID: 0}
-    charaName: 
-    attackPower: 0
+    intervalAttackTime: 60
+    maxAttackCount: 3
+    discription: "\u55B6\u696D\u793E\u54E1\u3002"
+  - charaNo: 1
+    cost: 50
+    charaSprite: {fileID: 1984091228, guid: 658b75d3762a042199e2a61c9bc3659d, type: 3}
+    charaName: OfficeLady
+    attackPower: 1
+    attackRange: 1
+    intervalAttackTime: 30
+    maxAttackCount: 5
+    discription: "OL\u3002"
+  - charaNo: 2
+    cost: 200
+    charaSprite: {fileID: 257133826, guid: e2a31629ebce042bc8716d96ad50a443, type: 3}
+    charaName: President
+    attackPower: 3
     attackRange: 0
-    intervalAttackTime: 0
-    maxAttackCount: 0
-    discription: 
+    intervalAttackTime: 100
+    maxAttackCount: 2
+    discription: "\u793E\u9577\u3002"

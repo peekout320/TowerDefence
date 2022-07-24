@@ -287,6 +287,15 @@ MonoBehaviour:
   btnClosePopUp: {fileID: 9035782795649076428}
   btnChoseChara: {fileID: 9035782796766940844}
   canvasGroup: {fileID: 9035782794878644770}
+  imgPickupChara: {fileID: 9035782795021335674}
+  txtPickupCharaName: {fileID: 9035782796071206058}
+  txtPickupCharaAttackPower: {fileID: 9035782796749839386}
+  txtPickupCharaAttackRangeType: {fileID: 9035782794703849350}
+  txtPickupCharaCost: {fileID: 9035782795531746389}
+  txtPickupCharaMAxAttackCount: {fileID: 9035782796545614359}
+  selectCharaDetailPrefab: {fileID: 8964820445086483028, guid: 10f736d963f2d4410a7febd15b61242b, type: 3}
+  selectCharaDetailTran: {fileID: 9035782796233094257}
+  selectCharaDetailsList: []
 --- !u!1 &9035782794936233233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.0000011398724, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9035782796233094255
