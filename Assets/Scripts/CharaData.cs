@@ -20,6 +20,8 @@ public class CharaData
     [Multiline]
     public string discription;
 
+    public AnimationClip charaAnime;
+
     // TODO 他にもあれば追加
 
 

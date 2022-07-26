@@ -30,8 +30,11 @@ public class CharaController : MonoBehaviour
 
     private GameManager gameManager;
 
-    [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    private Animator anime;
+
+    private string overrideClipName = "Chara_anime_0";
+
+    private AnimatorOverrideController overrideController;
 
     //private void Start()
     //{
@@ -161,16 +164,41 @@ public class CharaController : MonoBehaviour
         // 残りの攻撃回数の表示更新
         UpdateDisplayAttackCount();
 
-        // キャラ画像の設定。アニメを利用するようになったら、この処理はやらない
-        if (TryGetComponent(out spriteRenderer))
+        // キャラごとの AnimationClip を設定
+        SetUpAnimation();
+
+    }
+
+    /// <summary>
+    /// Motion に登録されている AnimationClip を変更
+    /// </summary>
+    private void SetUpAnimation()
+    {
+        if (TryGetComponent(out anime))
         {
 
-            // 画像を配置したキャラの画像に差し替える
-            spriteRenderer.sprite = this.charaData.charaSprite;
+            overrideController = new AnimatorOverrideController();
+
+            overrideController.runtimeAnimatorController = anime.runtimeAnimatorController;
+            anime.runtimeAnimatorController = overrideController;
+
+            AnimatorStateInfo[] layerInfo = new AnimatorStateInfo[anime.layerCount];
+
+            for (int i = 0; i < anime.layerCount; i++)
+            {
+                layerInfo[i] = anime.GetCurrentAnimatorStateInfo(i);
+            }
+
+            overrideController[overrideClipName] = this.charaData.charaAnime;
+
+            anime.runtimeAnimatorController = overrideController;
+
+            anime.Update(0.0f);
+
+            for (int i = 0; i < anime.layerCount; i++)
+            {
+                anime.Play(layerInfo[i].fullPathHash, i, layerInfo[i].normalizedTime);
+            }
         }
-
-        // TODO キャラごとの AnimationClip を設定
-
-
     }
 }

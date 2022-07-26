@@ -34,8 +34,8 @@ public class CharaGenerator : MonoBehaviour
     {
         // TODO 配置できる最大キャラ数に達している場合には配置できない
 
-        // 画面をタップ(マウスクリック)し、かつ、配置キャラポップアップが非表示状態なら
-        if (Input.GetMouseButtonDown(0) && !placementCharaSelectPopUp.gameObject.activeSelf)
+        // 画面をタップ(マウスクリック)し、かつ、配置キャラポップアップが非表示状態かつ、ゲームの現在の進行状態が Play なら
+        if (Input.GetMouseButtonDown(0) && !placementCharaSelectPopUp.gameObject.activeSelf && gameManager.currentGameState == GameManager.GameState.Play)
         {
             // タップ(マウスクリック)の位置を取得してワールド座標に変換し、それをさらにタイルのセル座標に変換
             gridPos = grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -110,12 +110,11 @@ public class CharaGenerator : MonoBehaviour
     /// </summary>
     public void ActivatePlacementCharaSelectPopUp()
     {
+        // ゲームの進行状態をゲーム停止に変更
+        gameManager.SetGameState(GameManager.GameState.Stop);
 
-        // TODO ゲームの進行状態をゲーム停止に変更
-
-
-        // TODO すべての敵の移動を一時停止
-
+        // すべての敵の移動を一時停止
+        gameManager.PauseEnemies();
 
         // 配置キャラ選択用のポップアップの表示
         placementCharaSelectPopUp.gameObject.SetActive(true);
@@ -127,23 +126,22 @@ public class CharaGenerator : MonoBehaviour
     /// </summary>
     public void InactivatePlacementCharaSelectPopUp()
     {
-
         // 配置キャラ選択用のポップアップの非表示
         placementCharaSelectPopUp.gameObject.SetActive(false);
 
+        // ゲームオーバーやゲームクリアではない場合
+        if (gameManager.currentGameState == GameManager.GameState.Stop)
+        {
+            // ゲームの進行状態をプレイ中に変更して、ゲーム再開
+            gameManager.SetGameState(GameManager.GameState.Play);
 
-        // TODO ゲームオーバーやゲームクリアではない場合
+            // すべての敵の移動を再開
+            gameManager.ResumeEnemies();
 
-
-        // TODO ゲームの進行状態をプレイ中に変更して、ゲーム再開
-
-
-        // TODO すべての敵の移動を再開
-
-
-        // TODO カレンシーの加算処理を再開
-
+            // TODO カレンシーの加算処理を再開
+        }
     }
+
     /// <summary>
     /// キャラのデータをリスト化
     /// </summary>
