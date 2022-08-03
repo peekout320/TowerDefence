@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     private List<EnemyController> enemiesList = new List<EnemyController>();
     //敵の情報を一元化して管理するための変数。EnemyController型で扱う
 
+    private int destroyEnemyCount;
+
     void Start()
     {
         // ゲームの進行状態を準備中に設定
@@ -126,6 +128,42 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemyList(EnemyController removeEnemy)
     {
         enemiesList.Remove(removeEnemy);
+    }
+
+    /// <summary>
+    /// 破壊した敵の数をカウント(このメソッドを外部のクラスから実行してもらう)
+    /// </summary>
+    public void CountUpDestoryEnemyCount(EnemyController enemyController)
+    {
+
+        // List から破壊された敵の情報を削除
+        RemoveEnemyList(enemyController);
+
+        // 敵を破壊した数を加算
+        destroyEnemyCount++;
+
+        Debug.Log("破壊した敵の数 : " + destroyEnemyCount);
+
+        // ゲームクリア判定
+        JudgeGameClear();
+    }
+
+
+    /// <summary>
+    /// ゲームクリア判定
+    /// </summary>
+    public void JudgeGameClear()
+    {
+        // 生成数を超えているか
+        if (destroyEnemyCount >= maxEnemyCount)
+        {
+
+            Debug.Log("ゲームクリア");
+
+
+            // TODO ゲームクリアの処理を追加
+
+        }
     }
 
 }

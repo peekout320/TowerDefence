@@ -166,7 +166,6 @@ public class CharaController : MonoBehaviour
 
         // キャラごとの AnimationClip を設定
         SetUpAnimation();
-
     }
 
     /// <summary>

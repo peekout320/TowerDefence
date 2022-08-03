@@ -50,20 +50,6 @@ public class CharaGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// キャラ生成
-    /// </summary>
-    /// <param name="gridPos"></param>
-    //private void CreateChara(Vector3Int gridPos)
-    //{
-    //    // タップした位置にキャラを生成して配置
-    //    GameObject chara = Instantiate(charaPrefab, gridPos, Quaternion.identity);
-
-    //    // キャラの位置がタイルの左下を 0,0 として生成しているので、タイルの中央にくるように位置を調整
-    //    chara.transform.position = new Vector2(chara.transform.position.x + 0.5f, chara.transform.position.y + 0.5f);
-
-    //}
-
-    /// <summary>
     /// 設定
     /// </summary>
     /// <param name="gameManager"></param>

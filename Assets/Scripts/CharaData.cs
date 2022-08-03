@@ -22,6 +22,8 @@ public class CharaData
 
     public AnimationClip charaAnime;
 
+    public Vector2 Size;
+
     // TODO 他にもあれば追加
 
 

@@ -46,7 +46,7 @@ public class EnemyGenerator : MonoBehaviour
                     // 敵の生成
                     GenerateEnemy();
 
-                    // 生成した数をカウントアップとListへ追加
+                    // 生成した敵をカウントアップとListへ追加
                     gameManager.AddEnemyList(GenerateEnemy());
 
                     // 敵の最大生成数を超えたら生成停止
@@ -76,7 +76,7 @@ public class EnemyGenerator : MonoBehaviour
         Vector3[] paths = pathDatas[randomValue].pathTranArray.Select(x => x.position).ToArray();
 
         // 敵キャラの初期設定を行い、移動を一時停止しておく
-        enemyController.SetUpEnemyController(paths);
+        enemyController.SetUpEnemyController(paths,gameManager);
 
         // 敵の移動経路のライン表示を生成の準備
         StartCoroutine(PreparateCreatePathLine(paths,enemyController));
