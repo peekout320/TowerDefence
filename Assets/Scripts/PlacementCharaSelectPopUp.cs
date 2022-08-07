@@ -121,7 +121,8 @@ public class PlacementCharaSelectPopUp : MonoBehaviour
     public void ShowPopUp()
     {
 
-        // TODO 各キャラのボタンの制御
+        // 各キャラのボタンの制御
+        CheckAllCharaButtons();
 
 
         // ポップアップの表示
@@ -134,11 +135,14 @@ public class PlacementCharaSelectPopUp : MonoBehaviour
     private void OnClickSubmitChoseChara()
     {
 
-        // TODO コストの支払いが可能か最終確認
+        if (choseCharaData.cost > GameData.instance.currency)
+        {
+            return;
+        }
 
 
-        // 選択しているキャラの生成
-        charaGenerator.CreateChoseChara(choseCharaData);
+            // 選択しているキャラの生成
+            charaGenerator.CreateChoseChara(choseCharaData);
 
         // ポップアップの非表示
         HidePopUp();
@@ -187,5 +191,22 @@ public class PlacementCharaSelectPopUp : MonoBehaviour
         txtPickupCharaCost.text = charaData.cost.ToString();
 
         txtPickupCharaMAxAttackCount.text = charaData.maxAttackCount.ToString();
+    }
+
+    /// <summary>
+    /// コストが支払えるかどうかを 各 SelectCharaDetail で確認してボタン押下機能を切り替え
+    /// </summary>
+    private void CheckAllCharaButtons()
+    {
+        // 配置できるキャラがいる場合のみ処理を行う
+        if (selectCharaDetailsList.Count > 0)
+        {
+
+            // 各キャラのコストとカレンシーを確認して、配置できるかどうかを判定してボタンの押下有無を設定
+            for (int i = 0; i < selectCharaDetailsList.Count; i++)
+            {
+                selectCharaDetailsList[i].ChangeActivateButton(selectCharaDetailsList[i].JudgePermissionCost(GameData.instance.currency));
+            }
+        }
     }
 }

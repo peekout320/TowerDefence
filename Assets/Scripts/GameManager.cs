@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
 
     private int destroyEnemyCount;
 
+    public UIManager uiManager;
+
+    [SerializeField]
+    private List<CharaController> charasList = new List<CharaController>();
+
     void Start()
     {
         // ゲームの進行状態を準備中に設定
@@ -62,7 +67,8 @@ public class GameManager : MonoBehaviour
         // 敵の生成準備開始
         StartCoroutine(enemyGenerator.PreparateEnemyGenerate(this));
 
-        // TODO カレンシーの自動獲得処理の開始
+        // カレンシーの自動獲得処理の開始
+        StartCoroutine(TimeToCurrency());
 
     }
 
@@ -164,6 +170,63 @@ public class GameManager : MonoBehaviour
             // TODO ゲームクリアの処理を追加
 
         }
+    }
+
+    /// <summary>
+    /// 時間の経過に応じてカレンシーを加算
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator TimeToCurrency()
+    {
+
+        int timer = 0;
+
+        // ゲームプレイ中のみ加算
+        while (currentGameState == GameState.Play)
+        {
+            timer++;
+
+            // 規定の時間が経過し、カレンシーが最大値でなければ
+            if (timer > GameData.instance.currencyIntervalTime && GameData.instance.currency < GameData.instance.maxCurrency)
+            {
+                timer = 0;
+
+                // 最大値以下になるようにカレンシーを加算
+                GameData.instance.currency = Mathf.Clamp(GameData.instance.currency += GameData.instance.addCurrencyPoint, 0, GameData.instance.maxCurrency);
+
+                // カレンシーの画面表示を更新
+                uiManager.UpdateDisplayCurrency();
+            }
+
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// 選択したキャラの情報を List に追加
+    /// </summary>
+    public void AddCharasList(CharaController chara)
+    {
+        charasList.Add(chara);
+    }
+
+    /// <summary>
+    /// 選択したキャラを破棄し、情報を List から削除
+    /// </summary>
+    /// <param name="chara"></param>
+    public void RemoveCharasList(CharaController chara)
+    {
+        Destroy(chara.gameObject);
+        charasList.Remove(chara);
+    }
+
+    /// <summary>
+    /// 現在の配置しているキャラの数の取得
+    /// </summary>
+    /// <returns></returns>
+    public int GetPlacementCharaCount()
+    {
+        return charasList.Count;
     }
 
 }
