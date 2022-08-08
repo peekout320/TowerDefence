@@ -33,7 +33,7 @@ public class CharaGenerator : MonoBehaviour
     void Update()
     {
         if (gameManager.GetPlacementCharaCount() >= GameData.instance.maxCharaPlacementCount)
-            //return;
+            return;
         Debug.Log("test"+gameManager.GetPlacementCharaCount()+GameData.instance.maxCharaPlacementCount);
 
             // 画面をタップ(マウスクリック)し、かつ、配置キャラポップアップが非表示状態かつ、ゲームの現在の進行状態が Play なら
